@@ -1,0 +1,38 @@
+<hr>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <p class="lead"> SEARCH FOR YOUR FAVOURITE TRACK</p>
+  </div>
+ <form>
+    <div class="form-row">
+      <div id="mysearch" class="col-lg-3">
+        <input #text type="text" class="form-control" placeholder="Enter track name">
+      </div>
+      <button type="button" class="btn btn-primary" (click)="click(text.value)">Search here</button>
+</div>
+<div class="container-fluid">
+  <h2>Latest Trending Music</h2>
+  <div class="container-fluid d-flex flex-wrap my-2">
+    <div class="card col-sm-12 col-md-3 col-lg-4" style="width: 18rem;" *ngFor="let music of arrayOfMusic">
+      <div class="card-body">
+        <h5 class="card-title"> NAME : {{music.name}}</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"> ARTIST : {{music.artist.name}}</li>
+      </ul>
+      <div class="card-body">
+        <!-- <button class="btn btn-outline-primary mx-2" > ADD </button> -->
+         <nav>
+          <a routerLink="/wishlist" routerLinkActive="active" button class="btn btn-outline-primary mx-2"
+            (click)="addToWishlist(music)">ADD</a>
+        </nav>
+        <router-outlet></router-outlet>
+        <button class="btn btn-outline-primary mx-2" (click)="getDetails(music)"> DETAILS </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+          
+          
